@@ -26,6 +26,7 @@
 		CC5099CD1C3902F2003F9F17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CC5099CF1C3902F2003F9F17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC5099D51C391F80003F9F17 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		CC8A489E1C51735D0069B01E /* Core_Data 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Core_Data 2.xcdatamodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,9 +300,10 @@
 		CC5099C71C3902F2003F9F17 /* Core_Data.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				CC8A489E1C51735D0069B01E /* Core_Data 2.xcdatamodel */,
 				CC5099C81C3902F2003F9F17 /* Core_Data.xcdatamodel */,
 			);
-			currentVersion = CC5099C81C3902F2003F9F17 /* Core_Data.xcdatamodel */;
+			currentVersion = CC8A489E1C51735D0069B01E /* Core_Data 2.xcdatamodel */;
 			path = Core_Data.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

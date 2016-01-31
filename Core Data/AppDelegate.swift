@@ -23,30 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Seed Persistent Store
         seedPersistentStoreWithManagedObjectContext(managedObjectContext)
 
-        /*
         // Create Fetch Request
         let fetchRequest = NSFetchRequest(entityName: "List")
 
         // Add Sort Descriptor
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
-
-        // Add Predicate
-        let predicate = NSPredicate(format: "name CONTAINS[c] %@", "o")
-        fetchRequest.predicate = predicate
-        */
-
-        // Create Fetch Request
-        let fetchRequest = NSFetchRequest(entityName: "Item")
-
-        // Add Sort Descriptor
-        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
-        fetchRequest.sortDescriptors = [sortDescriptor]
-
-        // Add Predicate
-        let predicate1 = NSPredicate(format: "completed = 1")
-        let predicate2 = NSPredicate(format: "%K = %@", "list.name", "Home")
-        fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate1, predicate2])
 
         do {
             let records = try managedObjectContext.executeFetchRequest(fetchRequest) as! [NSManagedObject]
@@ -56,81 +38,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
 
         } catch {
-            let saveError = error as NSError
-            print("\(saveError), \(saveError.userInfo)")
+            let fetchError = error as NSError
+            print("\(fetchError), \(fetchError.userInfo)")
         }
-
-        /*
-        // Helpers
-        var list: NSManagedObject? = nil
-
-        // Fetch List Records
-        let lists = fetchRecordsForEntity("List", inManagedObjectContext: managedObjectContext)
-
-        if let listRecord = lists.first {
-            list = listRecord
-        } else if let listRecord = createRecordForEntity("List", inManagedObjectContext: managedObjectContext) {
-            list = listRecord
-        }
-
-        // print("number of lists: \(lists.count)")
-        // print("--")
-
-        if let list = list {
-            // print(list.valueForKey("name"))
-            // print(list.valueForKey("createdAt"))
-
-            if list.valueForKey("name") == nil {
-                list.setValue("Shopping List", forKey: "name")
-            }
-
-            if list.valueForKey("createdAt") == nil {
-                list.setValue(NSDate(), forKey: "createdAt")
-            }
-
-            let items = list.mutableSetValueForKey("items")
-
-            if let anyItem = items.anyObject() as? NSManagedObject {
-                managedObjectContext.deleteObject(anyItem)
-            } else {
-                managedObjectContext.deleteObject(list)
-            }
-
-            /*
-            // Create Item Record
-            if let item = createRecordForEntity("Item", inManagedObjectContext: managedObjectContext) {
-                // Set Attributes
-                item.setValue("Item \(items.count + 1)", forKey: "name")
-                item.setValue(NSDate(), forKey: "createdAt")
-
-                // Set Relationship
-                item.setValue(list, forKey: "list")
-
-                // Add Item to Items
-                items.addObject(item)
-            }
-            */
-            
-            print("number of items: \(items.count)")
-            print("---")
-            
-            for itemRecord in items {
-                print(itemRecord.valueForKey("name"))
-            }
-        }
-
-        do {
-            // Save Managed Object Context
-            try managedObjectContext.save()
-            
-        } catch {
-            print("Unable to save managed object context.")
-        }
-        */
-
+        
         return true
     }
-
+    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -202,22 +116,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         for listName in listNames {
             // Create List
-            if let list = createRecordForEntity("List", inManagedObjectContext: managedObjectContext) {
+            if let list = createRecordForEntity("List", inManagedObjectContext: managedObjectContext) as? List {
                 // Populate List
-                list.setValue(listName, forKey: "name")
-                list.setValue(NSDate(), forKey: "createdAt")
+                list.name = listName
+                list.createdAt = NSDate().timeIntervalSinceReferenceDate
 
                 // Add Items
                 for i in 1...10 {
                     // Create Item
-                    if let item = createRecordForEntity("Item", inManagedObjectContext: managedObjectContext) {
+                    if let item = createRecordForEntity("Item", inManagedObjectContext: managedObjectContext) as? Item {
                         // Set Attributes
-                        item.setValue("Item \(i)", forKey: "name")
-                        item.setValue(NSDate(), forKey: "createdAt")
-                        item.setValue(NSNumber(bool: (i % 3 == 0)), forKey: "completed")
+                        item.name = "Item \(i)"
+                        item.completed = (i % 3 == 0)
+                        item.createdAt = NSDate().timeIntervalSinceReferenceDate
 
                         // Set List Relationship
-                        item.setValue(list, forKey: "list")
+                        item.list = list
                     }
                 }
             }
@@ -227,7 +141,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: didSeedPersistentStore)
         }
     }
-
+    
     // MARK: -
     func saveChanges() -> Bool {
         var result = true

@@ -14,6 +14,12 @@
 		CC5099CB1C3902F2003F9F17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC5099CA1C3902F2003F9F17 /* Assets.xcassets */; };
 		CC5099CE1C3902F2003F9F17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC5099CC1C3902F2003F9F17 /* LaunchScreen.storyboard */; };
 		CC5099D61C391F80003F9F17 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5099D51C391F80003F9F17 /* CoreDataManager.swift */; };
+		CCAF80571C5DE56A00148DB3 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAF80511C5DE56A00148DB3 /* Item.swift */; };
+		CCAF80591C5DE56A00148DB3 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAF80531C5DE56A00148DB3 /* List.swift */; };
+		CCAF805B1C5DE56A00148DB3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAF80551C5DE56A00148DB3 /* User.swift */; };
+		CCAF805F1C5DE58E00148DB3 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAF805C1C5DE58E00148DB3 /* User+CoreDataProperties.swift */; };
+		CCAF80601C5DE58E00148DB3 /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAF805D1C5DE58E00148DB3 /* Item+CoreDataProperties.swift */; };
+		CCAF80611C5DE58E00148DB3 /* List+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAF805E1C5DE58E00148DB3 /* List+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +33,12 @@
 		CC5099CF1C3902F2003F9F17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC5099D51C391F80003F9F17 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		CC8A489E1C51735D0069B01E /* Core_Data 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Core_Data 2.xcdatamodel"; sourceTree = "<group>"; };
+		CCAF80511C5DE56A00148DB3 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		CCAF80531C5DE56A00148DB3 /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
+		CCAF80551C5DE56A00148DB3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CCAF805C1C5DE58E00148DB3 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CCAF805D1C5DE58E00148DB3 /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CCAF805E1C5DE58E00148DB3 /* List+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "List+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +79,12 @@
 				CC5099CC1C3902F2003F9F17 /* LaunchScreen.storyboard */,
 				CC5099CF1C3902F2003F9F17 /* Info.plist */,
 				CC5099C71C3902F2003F9F17 /* Core_Data.xcdatamodeld */,
+				CCAF805D1C5DE58E00148DB3 /* Item+CoreDataProperties.swift */,
+				CCAF80511C5DE56A00148DB3 /* Item.swift */,
+				CCAF805E1C5DE58E00148DB3 /* List+CoreDataProperties.swift */,
+				CCAF80531C5DE56A00148DB3 /* List.swift */,
+				CCAF805C1C5DE58E00148DB3 /* User+CoreDataProperties.swift */,
+				CCAF80551C5DE56A00148DB3 /* User.swift */,
 			);
 			path = "Core Data";
 			sourceTree = "<group>";
@@ -143,9 +161,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC5099C31C3902F2003F9F17 /* ViewController.swift in Sources */,
+				CCAF80611C5DE58E00148DB3 /* List+CoreDataProperties.swift in Sources */,
+				CCAF80591C5DE56A00148DB3 /* List.swift in Sources */,
+				CCAF805F1C5DE58E00148DB3 /* User+CoreDataProperties.swift in Sources */,
 				CC5099C11C3902F2003F9F17 /* AppDelegate.swift in Sources */,
 				CC5099D61C391F80003F9F17 /* CoreDataManager.swift in Sources */,
 				CC5099C91C3902F2003F9F17 /* Core_Data.xcdatamodeld in Sources */,
+				CCAF80601C5DE58E00148DB3 /* Item+CoreDataProperties.swift in Sources */,
+				CCAF80571C5DE56A00148DB3 /* Item.swift in Sources */,
+				CCAF805B1C5DE56A00148DB3 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +317,7 @@
 				CC5099D41C3902F2003F9F17 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
